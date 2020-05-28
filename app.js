@@ -4,6 +4,7 @@ var bodyParser = require("body-parser")
 var mongoose=require("mongoose")
 var methodOverride=require("method-override")
 var Person = require("./models/person")
+
 // mongoose.connect("mongodb://localhost/PhoneBook",{
 // useUnifiedTopology:true,
 // useNewUrlParser:true,
@@ -13,7 +14,7 @@ var Person = require("./models/person")
 //     console.log("DB Connection Error : $(err.message)");
 // });
 
-
+//"mongodb+srv://ritik31:ritik1212@cluster0-dqpfo.mongodb.net/test?retryWrites=true&w=majority"
 
 Person.create({
     name:'Prateek Gupta',
@@ -27,16 +28,15 @@ Person.create({
     }
 });
 
-
-
-const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://ritik31:ritik1212@cluster0-dqpfo.mongodb.net/test?retryWrites=true&w=majority";
-const client = new MongoClient(uri, { useNewUrlParser: true });
-client.connect(err => {
-  const collection = client.db("test").collection("devices");
-  // perform actions on the collection object
-  client.close();
+mongoose.connect("mongodb+srv://ritik31:ritik1212@cluster0-dqpfo.mongodb.net/test?retryWrites=true&w=majority",{
+useUnifiedTopology:true,
+useNewUrlParser:true,
+useCreateIndex:true
+}).then(() =>console.log("DB Connected!"))
+.catch(err =>{
+    console.log("DB Connection Error : $(err.message)");
 });
+
 
 var PersonRoutes=require("./routes/person")
 
