@@ -5,29 +5,6 @@ var mongoose=require("mongoose")
 var methodOverride=require("method-override")
 var Person = require("./models/person")
 
-// mongoose.connect("mongodb://localhost/PhoneBook",{
-// useUnifiedTopology:true,
-// useNewUrlParser:true,
-// useCreateIndex:true
-// }).then(() =>console.log("DB Connected!"))
-// .catch(err =>{
-//     console.log("DB Connection Error : $(err.message)");
-// });
-
-//"mongodb+srv://ritik31:ritik1212@cluster0-dqpfo.mongodb.net/test?retryWrites=true&w=majority"
-
-// Person.create({
-//     name:'Prateek Gupta',
-//     dob:'14/11/1999',
-//     email_id:'prateekgupta@gmail.com',
-//     phone:"9488451569"
-// },function(err,newPeron){
-//     if(err){
-//         console.log(err);
-//     }else{
-//     }
-// });
-
 mongoose.connect("mongodb+srv://ritik31:ritik1212@cluster0-dqpfo.mongodb.net/test?retryWrites=true&w=majority",{
 useUnifiedTopology:true,
 useNewUrlParser:true,
