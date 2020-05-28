@@ -1,7 +1,7 @@
 <%- include("partials/header") %>
 <div class="container">
     <div class="row">
-        <div style="width: 30%;margin-left:40rem;">
+        <div style="width: 50%;margin-left:30rem;" class="jumbotron">
             <form action="">
                 <div class="form-group">
                     <input class="form-control" type="text" name="Search" placeholder="Search....">
@@ -10,36 +10,17 @@
                     <button class="btn btn-primary btn-md btn-block">Go</button>
                 </div>
             </form>
-        <div class="row match-to-row">
+            <a href="/person/new" class="btn btn-block" style="background-color:cyan;font-weight: bold;">Add New Contact</a><br>
+        <div class="row match-to-row" style="text-align: center;">
           <% person.forEach(function(person){ %>
-                <li><%= person.name %></li>
-                <li><%= person.dob %></li>
-                <li><%= person.email_id %></li>
-                <li><%= person.phone %></li>
-                <br>
-      <% }); %>
-      </div>  
+                <div class="container fluid">
+                  <!-- <a href="/delete/<%= person._id %>"class="btn btn-danger">Delete</a> -->
+                  <a href="/person/<%= person._id %>" class="lead" style="color: purple;"><strong><%= person.name %></strong></a>                          
+                  <br>
+                </div>
+          <% }); %>
       </div> 
-<nav>
-  <div style="width: 30%;margin-left:45rem;margin-top: 45rem;">
-    <ul class="pagination">
-      <li>
-        <a href="#" aria-label="Previous">
-          <span aria-hidden="true">&laquo;</span>
-        </a>
-      </li>
-      <li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>
-      <li><a href="#">2</a></li>
-      <li><a href="#">3</a></li>
-      <li><a href="#">4</a></li>
-      <li><a href="#">5</a></li>
-      <li>
-        <a href="#" aria-label="Next">
-          <span aria-hidden="true">&raquo;</span>
-        </a>
-      </li>
-    </ul>
-  </nav>
+  </div>
 </div>
 </div>
 <%- include("partials/footer") %>
