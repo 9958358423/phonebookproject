@@ -17,10 +17,10 @@ var Person = require("./models/person")
 //"mongodb+srv://ritik31:ritik1212@cluster0-dqpfo.mongodb.net/test?retryWrites=true&w=majority"
 
 Person.create({
-    name:'Prateek Gupta',
-    dob:'14/NOV/1999',
-    email_id:'prateekgupta6188@gmail.com',
-    phone:"8130757836"
+    name:'Ritik Goel',
+    dob:'31/DEC/1999',
+    email_id:'goelritik31@gmail.com',
+    phone:"9958358423"
 },function(err,newPeron){
     if(err){
         console.log(err);
