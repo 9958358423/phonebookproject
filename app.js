@@ -3,7 +3,7 @@ var app = express()
 var bodyParser = require("body-parser")
 var mongoose=require("mongoose")
 var methodOverride=require("method-override")
-
+var Person = require("./models/person")
 // mongoose.connect("mongodb://localhost/PhoneBook",{
 // useUnifiedTopology:true,
 // useNewUrlParser:true,
@@ -14,8 +14,23 @@ var methodOverride=require("method-override")
 // });
 
 
+
+Person.create({
+    name:'Prateek Gupta',
+    dob:'14/NOV/1999',
+    email_id:'prateekgupta6188@gmail.com',
+    phone:"8130757836"
+},function(err,newPeron){
+    if(err){
+        console.log(err);
+    }else{
+    }
+});
+
+
+
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://ritik31:<ritik1212>@cluster0-dqpfo.mongodb.net/test?retryWrites=true&w=majority";
+const uri = "mongodb+srv://ritik31:ritik1212@cluster0-dqpfo.mongodb.net/test?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true });
 client.connect(err => {
   const collection = client.db("test").collection("devices");
@@ -23,7 +38,9 @@ client.connect(err => {
   client.close();
 });
 
+var PersonRoutes=require("./routes/person")
 
+app.use(PersonRoutes);
 app.set("view engine","ejs")
 app.set("port",process.env.PORT||8080)
 console.log("server is running")
@@ -31,6 +48,13 @@ app.use(bodyParser.urlencoded({extended:true}))
 app.use(bodyParser.json())
 
 app.get("/",function(req,res){
-    res.render("index");
-})
+    Person.find({},function(err,allperson){
+        if(err){
+            console.log(err);
+        }
+        else{
+            res.render("index",{person:allperson});
+        }
+    });
+});
 app.listen(app.get("port"))

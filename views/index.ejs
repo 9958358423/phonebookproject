@@ -10,8 +10,16 @@
                     <button class="btn btn-primary btn-md btn-block">Go</button>
                 </div>
             </form>
-        </div>
-
+        <div class="row match-to-row">
+          <% person.forEach(function(person){ %>
+                <li><%= person.name %></li>
+                <li><%= person.dob %></li>
+                <li><%= person.email_id %></li>
+                <li><%= person.phone %></li>
+                <br>
+      <% }); %>
+      </div>  
+      </div> 
 <nav>
   <div style="width: 30%;margin-left:45rem;margin-top: 45rem;">
     <ul class="pagination">
@@ -32,7 +40,6 @@
       </li>
     </ul>
   </nav>
-</div>
 </div>
 </div>
 <%- include("partials/footer") %>
