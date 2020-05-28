@@ -15,7 +15,8 @@
           <% person.forEach(function(person){ %>
                 <div class="container fluid">
                   <!-- <a href="/delete/<%= person._id %>"class="btn btn-danger">Delete</a> -->
-                  <a href="/person/<%= person._id %>" class="lead" style="color: purple;"><strong><%= person.name %></strong></a>                          
+                  <a href="/person/<%= person._id %>" class="lead" style="color: purple; background-color: lightblue;border: solid 0.1rem black;"><strong><%= person.name %></strong></a>                          
+                  <br>
                   <br>
                 </div>
           <% }); %>

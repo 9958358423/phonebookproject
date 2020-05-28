@@ -54,14 +54,19 @@ app.get("/",function(req,res){
 
 //index page
 app.get("/person",function(req,res){
-    Person.find({},function(err,allperson){
+    const queryObj={}
+    if(req.query.Search != null){
+        console.log('herererererer',req.query.Search);
+        queryObj["name"]={'$regex': req.query.Search ,$options:'i'}
+    }
+    Person.find(queryObj,function(err,allperson){
         if(err){
             console.log(err);
         }
         else{
             res.render("index",{person:allperson});
         }
-    });
+    }).sort('name');
 });
 
 
