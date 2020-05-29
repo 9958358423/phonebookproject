@@ -32,6 +32,15 @@ app.get("/",function(req,res){
 //index page
 app.get("/person",function(req,res){
     const queryObj={}
+    var limit=4
+    var offset=0
+    if(req.query.page != null)
+    {
+        console.log(`----------------page`);
+        offset= (req.query.page-1) * 4
+        console.log(limit,`   `,offset);
+        
+    }
     if(req.query.Search != null){
         console.log('herererererer',req.query.Search);
         queryObj["name"]={'$regex': req.query.Search ,$options:'i'}
@@ -43,7 +52,7 @@ app.get("/person",function(req,res){
         else{
             res.render("index",{person:allperson});
         }
-    }).sort('name');
+    }).sort('name').skip(offset).limit(limit);
 });
 
 

@@ -4,14 +4,15 @@
         <div style="width: 50%;margin-left:30rem;" class="jumbotron">
             <form action="">
                 <div class="form-group">
-                    <input class="form-control" type="text" name="Search" placeholder="Search....">
+                    <input class="form-control" type="text" name="Search" placeholder="Search...." style="margin-left: 18rem; width: 40%;">
                 </div>
-                <div class="form-group">
-                    <button class="btn btn-primary btn-md btn-block">Go</button>
+                <div class="form-group"style="width: 20%; margin-left: 80%; margin-top: -4.8rem;">
+                    <button class="btn btn-primary btn-md btn-block">Submit</button>
                 </div>
             </form>
-            <a href="/person/new" class="btn btn-block" style="background-color:cyan;font-weight: bold;">Add New Contact</a><br>
-        <div class="row match-to-row" style="text-align: center;">
+            <a href="/person/new" class="btn btn-block btn-primary" style="font-weight: bold;width: 30%; margin-left: 1rem; margin-top: -5rem;">Add New Contact</a><br>
+            <br>
+            <div class="row match-to-row" style="text-align: center;">
           <% person.forEach(function(person){ %>
                 <div class="container fluid">
                   <!-- <a href="/delete/<%= person._id %>"class="btn btn-danger">Delete</a> -->
@@ -21,7 +22,29 @@
                 </div>
           <% }); %>
       </div> 
-  </div>
+<div style="margin-left: 12rem;">
+    <nav>
+    <ul class="pagination">
+      <li>
+        <a href="#" aria-label="Previous">
+          <span aria-hidden="true">&laquo;</span>
+        </a>
+      </li>
+      <li><a href="/person?page=1">1</a></li>
+      <li><a href="/person?page=2">2</a></li>
+      <li><a href="/person?page=3">3</a></li>
+      <li><a href="/person?page=4">4</a></li>
+      <li><a href="/person?page=5">5</a></li>
+      <li>
+        <a href="#" aria-label="Next">
+          <span aria-hidden="true">&raquo;</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
 </div>
 </div>
+</div>
+</div>
+
 <%- include("partials/footer") %>
