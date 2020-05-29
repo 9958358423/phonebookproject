@@ -36,13 +36,11 @@ app.get("/person",function(req,res){
     var offset=0
     if(req.query.page != null)
     {
-        console.log(`----------------page`);
         offset= (req.query.page-1) * 4
         console.log(limit,`   `,offset);
         
     }
     if(req.query.Search != null){
-        console.log('herererererer',req.query.Search);
         queryObj["name"]={'$regex': req.query.Search ,$options:'i'}
     }
     Person.find(queryObj,function(err,allperson){
